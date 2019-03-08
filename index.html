@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/vuejs-clipper@0.2.9/dist/vuejs-clipper.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+  <script src="https://unpkg.com/vuejs-clipper@0.2.9/dist/vuejs-clipper.umd.min.js"></script>
+  <script src="demo.js" defer></script>
+  <style>
+  .sm {
+  width: 100px;
+}
+.clipper {
+  max-width: 500px;
+}
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div>
+      originImg:{{originImg}}
+      <img :src="src" alt="" class="sm img">
+    </div>
+    <div>
+      compressImg:{{compressImg}}
+      <img :src="src2" alt="" class="sm img2">
+    </div>
+    <div>
+        clipImg:{{clipImg}}
+        <img :src="src3" alt="" class="sm img3">
+      </div>
+  <clipper-fixed ref="clipper" class="clipper" :src="src2" bg-color="black" :round="false" preview="fixed-preview" shadow="rgba(0,0,0,0)"></clipper-fixed>
+  <button @click="clip">clip image</button>
+</div>
+</body>
+</html>
