@@ -10,12 +10,19 @@ new Vue({
     },
     mounted() {
       const img = this.$el.querySelector('.img')
-      this.getImageSize(img,this.originImg)
-      this.compress()
-      const img2 = this.$el.querySelector('.img2')
-      img2.onload = ()=>{
-        this.getImageSize(img2,this.compressImg)
-        this.$set(this.compressImg,'dataURL length',this.src2.length)
+      const process = ()=>{
+        this.getImageSize(img,this.originImg)
+        this.compress()
+        const img2 = this.$el.querySelector('.img2')
+        img2.onload = ()=>{
+          this.getImageSize(img2,this.compressImg)
+          this.$set(this.compressImg,'dataURL length',this.src2.length)
+        }
+      }
+      
+      if(img.complete) process()
+      else img.onload = ()=>{
+        process()
       }
     },
     methods: {
