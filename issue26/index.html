@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/vuejs-clipper@1.0.0/dist/vuejs-clipper.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+  <script src="https://unpkg.com/vuejs-clipper@1.0.0/dist/vuejs-clipper.umd.min.js"></script>
+  <script src="megapix-image.js"></script>
+  <script src="index.js" defer></script>
+  <style>
+.clipper {
+  max-width: 500px;
+}
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+      <h5>issue26</h5>
+    <clipper-basic
+      ref="clipper"
+      class="clipper"
+      :src="src"
+      :rotate="10"
+      @load="load"
+    ></clipper-basic>
+    <div>
+        <span>Clip: </span>
+        <button @click="getResult">clip</button>
+    </div>
+    <h5>Origin:</h5>
+    <img
+      :src="resultSrc"
+      class="clipper"
+      alt="result1">
+    <h5>Use megapix:</h5>
+    <img
+      :src="resultSrc2"
+      class="clipper"
+      alt="result2">
+  </div>
+</body>
+</html>
